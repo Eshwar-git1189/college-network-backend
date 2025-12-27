@@ -6,7 +6,7 @@ exports.getDashboard = async (req, res) => {
     const userId = req.userid;
 
     // basic user info
-    const user = await User.findById(userId).select("-password");
+    const user = await User.findOne(userId).select("-password");
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
