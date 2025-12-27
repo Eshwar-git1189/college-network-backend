@@ -1,4 +1,4 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 const app = require("./app");
@@ -11,6 +11,4 @@ mongoose
       console.log(`Server running on port ${process.env.PORT}`);
     });
   })
-  .catch((err) =>
-    console.log("Database connection error:", err.message)
-  );
+  .catch((err) => console.log("Database connection error:", err.message));
