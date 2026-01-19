@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import GoogleLoginComp from "../../components/GoogleLogin/googleLoginComp";
 
 const SignUp = () => {
   return (
@@ -45,11 +46,16 @@ const SignUp = () => {
           <div>or</div>
           <div className="border-b-1 border-gray-400 w-[45%] my-6"></div>
         </div>
-        <div>Google login </div>
+        <div>
+          <GoogleLoginComp />{" "}
+        </div>
       </div>
       <div className="mt-4 mb-10">
         Already on AskOnce?{" "}
-        <Link to={'/login'} className="text-blue-800 cursor-pointer hover:underline">
+        <Link
+          to={"/login"}
+          className="text-blue-800 cursor-pointer hover:underline"
+        >
           Sign in
         </Link>
       </div>

@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import SignUp from "./pages/signUp/signUp";
 import Login from "./pages/Login/Login";
 
+
 export default function App() {
   return (
     <>
