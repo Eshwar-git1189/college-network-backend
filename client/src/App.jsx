@@ -7,18 +7,22 @@ import Footer from "./components/Footer/footer";
 import { Routes, Route } from "react-router-dom";
 import SignUp from "./pages/signUp/signUp";
 import Login from "./pages/Login/Login";
+import NavbarV2 from "./components/navbarV2/NavbarV2";
+import Feeds from "./pages/Feeds/Feeds";
 
 
 export default function App() {
+  const isLoggedIn = true;
   return (
     <>
       <div className="bg-gray-100 w-[100%] h-[100%] box-border">
-        <NavbarV1 />
+        {isLoggedIn? <NavbarV2 />:<NavbarV1/>}
       </div>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/feeds" element={<Feeds />} />
       </Routes>
       <Footer />
     </>
