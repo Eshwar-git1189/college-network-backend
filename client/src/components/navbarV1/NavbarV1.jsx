@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function NavbarV1() {
   return (
-    <nav className="w-[100%] bg-gray-100 md:px-[100px] px-[20px] flex justify-between py-4 box-border rounded-2xl">
+    <nav className="w-full bg-gray-100 md:px-[100px] px-[20px] flex justify-between py-4 box-border rounded-2xl">
       <div className="flex justify-between">
         <Link to={"/"} className="flex gap-0 items-center cursor-pointer">
           <h3 className="text-blue-800 font-bold text-3xl">AskOnce</h3>

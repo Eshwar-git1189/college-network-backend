@@ -5,7 +5,7 @@ import GroupIcon from "@mui/icons-material/Group";
 import GroupsIcon from "@mui/icons-material/Groups";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MessageIcon from "@mui/icons-material/Message";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const NavbarV2 = () => {
   const [dropDown, setdropDown] = useState(false);
@@ -19,7 +19,7 @@ const NavbarV2 = () => {
     location.pathname === path ? "border-b-2 border-black" : "";
 
   return (
-    <div className="bg-white h-13 flex justify-between py-1 px-5 xl:px-50 fixed top-0 w-[100%] z-100">
+    <nav className="bg-white fixed top-0 w-full z-[1000] flex justify-between items-center px-50">
       {/* Left */}
       <div className="flex gap-2 items-center">
         <img
@@ -53,45 +53,60 @@ const NavbarV2 = () => {
 
       {/* Right */}
       <div className="hidden md:flex gap-10">
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link
+          to={"/feeds"}
+          className="flex flex-col items-center cursor-pointer"
+        >
           <HomeIcon sx={getIconStyle("/feeds")} />
           <div className={`text-sm ${getIconUnderLine("/feeds")}`}>Home</div>
-        </div>
+        </Link>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link
+          to={"/mynetwork"}
+          className="flex flex-col items-center cursor-pointer"
+        >
           <GroupIcon sx={getIconStyle("/mynetwork")} />
           <div className={`text-sm ${getIconUnderLine("/mynetwork")}`}>
             My Network
           </div>
-        </div>
+        </Link>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link
+          to={"/club"}
+          className="flex flex-col items-center cursor-pointer"
+        >
           <GroupsIcon sx={getIconStyle("/club")} />
           <div className={`text-sm ${getIconUnderLine("/club")}`}>Clubs</div>
-        </div>
+        </Link>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link
+          to={"/alert"}
+          className="flex flex-col items-center cursor-pointer"
+        >
           <NotificationsIcon sx={getIconStyle("/alert")} />
           <div className={`text-sm ${getIconUnderLine("/alert")}`}>Alerts</div>
-        </div>
+        </Link>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link
+          to={"/message"}
+          className="flex flex-col items-center cursor-pointer"
+        >
           <MessageIcon sx={getIconStyle("/message")} />
           <div className={`text-sm ${getIconUnderLine("/message")}`}>
             Message
           </div>
-        </div>
+        </Link>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link to={"/me"} className="flex flex-col items-center cursor-pointer">
           <img
             src="https://via.placeholder.com/40"
             className="w-8 h-8 rounded-full"
             alt="me"
           />
           <div className={`text-sm ${getIconUnderLine("/me")}`}>Me</div>
-        </div>
+        </Link>
       </div>
-    </div>
+    </nav>
   );
 };
 
