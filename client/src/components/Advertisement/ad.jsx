@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../Card/card";
+import Dp from "../../assets/dp.jpg"
 
 const Ad = () => {
   return (
@@ -18,7 +19,7 @@ const Ad = () => {
           {/* Profile Image */}
           <div className="absolute top-14 left-12 z-10">
             <img
-              src="http://res.cloudinary.com/dbraoytbj/image/upload/v1747213557/xwyq1qwjpsyhqd3dmroo.jpg"
+              src={Dp}
               alt="profile"
               className="rounded-full border-2 h-14 w-14 border-white cursor-pointer"
             />
@@ -26,10 +27,10 @@ const Ad = () => {
         </div>
 
         <div className="px-5 my-5 mx-auto">
-          <div className="text-sm font-semibold text-center">Danish</div>
+          <div className="text-sm font-semibold text-center">Eshwar</div>
 
           <div className="text-sm my-3 text-center">
-            Get the latest jobs and industry news
+            Get the latest announcements and placement news
           </div>
 
           <div className="text-sm my-1 border text-center p-2 rounded-2xl font-bold border-blue-900 text-white bg-blue-800 cursor-pointer">

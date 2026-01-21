@@ -14,7 +14,7 @@ const AddPostModel = () => {
           />
         </div>
 
-        <div className="text-2xl">Mashhood Ahmad</div>
+        <div className="text-2xl">Eshwar K S</div>
       </div>
 
       {/* Text Area */}

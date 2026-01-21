@@ -10,6 +10,7 @@ import NavbarV2 from "./components/navbarV2/NavbarV2";
 import Feeds from "./pages/Feeds/Feeds";
 import MyNetwork from "./pages/MyNetwork/MyNetwork";
 import Message from "./pages/Messages/Message";
+import Profile from "./pages/Profile/Profile";
 
 export default function App() {
   const isLoggedIn = true;
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/feeds" element={<Feeds />} />
           <Route path="/mynetwork" element={<MyNetwork />} />
           <Route path="/message" element={<Message/>} />
+          <Route path="/profile/:id" element={<Profile/>} />
         </Routes>
         <Footer />
       </div>

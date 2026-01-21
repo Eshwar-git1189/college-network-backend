@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/Logo.png";
 
 function NavbarV1() {
   return (
     <nav className="w-full bg-gray-100 md:px-[100px] px-[20px] flex justify-between py-4 box-border rounded-2xl">
       <div className="flex justify-between">
         <Link to={"/"} className="flex gap-0 items-center cursor-pointer">
-          <h3 className="text-blue-800 font-bold text-3xl">AskOnce</h3>
-          <img src="" alt="" />
+          <h3 className="text-blue-800 font-bold text-3xl px-0.5">AskOnce</h3>
+          <img className="w-10 h-10" src={Logo} alt="" />
         </Link>
       </div>
       <div className="flex box-border md:gap-4 gap-2 justify-center items-center">

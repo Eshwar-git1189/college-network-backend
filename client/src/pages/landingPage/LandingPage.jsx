@@ -5,9 +5,9 @@ import GoogleLoginComp from "../../components/GoogleLogin/googleLoginComp";
 
 function LandingPage() {
   return (
-    <div className="my-4 py-[50px] md:p1-[120px] px-5 md:flex justify-between">
-      <div className="md:w-[40%]">
-        <div className="text-4xl mx-auto text-gray-500">
+    <div className="my-4 py-[50px] md:p1-[120px] px-5 md:flex justify-between items-center">
+      <div className="md:w-[40%] items-center px-20 text-center">
+        <div className="text-4xl mx-auto text-gray-500 items-center">
           Welcome To Your College Community
         </div>
         <div className="my-3 flex mx-auto mt-[20px] bg-white gap-2 rounded-3xl w-[70%] text-black cursor-pointer">
@@ -19,7 +19,7 @@ function LandingPage() {
         >
           Sign in with email
         </Link>
-        <div className="mx">
+        <div className="mx text-start pt-5">
           By clicking COntinue to join or sign in, you agree tp{" "}
           <span className="text-blue-800 cursor-pointer hover:underline">
             AskOnce's User Agreement

@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../Card/card";
+import Dp from "../../assets/dp.jpg"
 
 const ProfileCard = () => {
   return (
@@ -18,7 +19,7 @@ const ProfileCard = () => {
           {/* Profile Image */}
           <div className="absolute top-14 left-6 z-10">
             <img
-              src="http://res.cloudinary.com/dbraoytbj/image/upload/v1747213557/xwyq1qwjpsyhqd3dmroo.jpg"
+              src={Dp}
               alt="profile"
               className="rounded-full border-2 h-16 w-16 border-white cursor-pointer"
             />
@@ -27,11 +28,11 @@ const ProfileCard = () => {
 
         {/* Info */}
         <div className="p-5">
-          <div className="text-xl font-semibold">Mashhood Ahmad</div>
-          <div className="text-sm my-1">@Amazon Software Eng</div>
-          <div className="text-sm my-1">Delhi, India</div>
+          <div className="text-xl font-semibold">Eswhar K S</div>
+          <div className="text-sm my-1">CSE Sem 5</div>
+          <div className="text-sm my-1"></div>
           <div className="text-sm my-1 text-blue-600 cursor-pointer">
-            Amazon
+            Java, JavaScipt, MERN Stack
           </div>
         </div>
       </Card>

@@ -6,6 +6,8 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MessageIcon from "@mui/icons-material/Message";
 import { useLocation, Link } from "react-router-dom";
+import Logo from "../../assets/Logo.png";
+import Dp from "../../assets/dp.jpg";
 
 const NavbarV2 = () => {
   const [dropDown, setdropDown] = useState(false);
@@ -22,11 +24,9 @@ const NavbarV2 = () => {
     <nav className="bg-white fixed top-0 w-full z-[1000] flex justify-between items-center px-50">
       {/* Left */}
       <div className="flex gap-2 items-center">
-        <img
-          className="w-8 h-8"
-          src="https://freelogopng.com/images/all_img/1656994981linkedin-icon-png.png"
-          alt="LinkedIn"
-        />
+        <Link to={"/feeds"}>
+          <img className="w-8 h-8" src={Logo} alt="AskOnce" />
+        </Link>
 
         <div className="relative">
           <input
@@ -97,13 +97,9 @@ const NavbarV2 = () => {
           </div>
         </Link>
 
-        <Link to={"/me"} className="flex flex-col items-center cursor-pointer">
-          <img
-            src="https://via.placeholder.com/40"
-            className="w-8 h-8 rounded-full"
-            alt="me"
-          />
-          <div className={`text-sm ${getIconUnderLine("/me")}`}>Me</div>
+        <Link to={"/profile/eshu"} className="flex flex-col items-center cursor-pointer">
+          <img src={Dp} className="w-8 h-8 rounded-full" alt="me" />
+          <div className={`text-sm ${getIconUnderLine("/profile")}`}>Me</div>
         </Link>
       </div>
     </nav>
