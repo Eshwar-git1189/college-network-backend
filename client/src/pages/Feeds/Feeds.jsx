@@ -8,6 +8,7 @@ import Ad from "../../components/Advertisement/ad";
 import Post from "../../components/Post/post";
 import PostModel from "../../components/PostModel/PostModel";
 import AddPostModel from "../../components/addPostModel/AddPostModel";
+import Dp from "../../assets/dp.jpg"
 
 const Feeds = () => {
   const [addPostModel, setPostModel] = useState(false);
@@ -43,8 +44,8 @@ const Feeds = () => {
             {/* Top Input */}
             <div className="flex gap-2 items-center">
               <img
-                src="http://res.cloudinary.com/dbraoytbj/image/upload/v1747213557/xwyq1qwjpsyhqd3dmroo.png"
-                className="rounded-4x1 w-13 h-13 border-2 border-white cursor-pointer"
+                src={Dp}
+                className="rounded-4x1 w-13 h-13 border-2 border-white cursor-pointer rounded-full"
                 alt="profile"
               />
 

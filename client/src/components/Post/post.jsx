@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Card from "../Card/card";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import CommentIcon from "@mui/icons-material/Comment";
+import Dp from "../../assets/dp.jpg";
+import Img from "../../assets/image.png";
+
 import SendIcon from "@mui/icons-material/Send";
 
-const Post = () => {
+const Post = ({ profile }) => {
   const [seeMore, setseeMore] = useState(false);
   const [comment, setComment] = useState(false);
   const handleSendComment = (e) => {
@@ -19,14 +22,14 @@ const Post = () => {
         <div className="w-12 h-12 rounded-4xl">
           <img
             className="rounded-4xl w-12 h-12 border-2 border-white cursor-pointer"
-            src=""
+            src={Img}
             alt="profile"
           />
         </div>
 
         <div>
-          <div className="text-lg font-semibold">Dummy User</div>
-          <div className="text-xs text-gray-500">SDE-II Eng. @Amazon</div>
+          <div className="text-lg font-semibold">Bahnu chandan</div>
+          <div className="text-xs text-gray-500">Sem 7, CSE</div>
         </div>
       </div>
 
@@ -57,22 +60,27 @@ const Post = () => {
           <div className="text-sm text-gray-600">2 Comments</div>
         </div>
       </div>
-      <div className="flex p-1">
-        <div className="w-[33%] flex justify-center items-center gap-2 border-r border-gray-100 p-2 hover:bg-gray-100 cursor-pointer">
-          <ThumbUpIcon sx={{ fontSize: 22, color: "blue" }} />
-          <span>Like</span>
-        </div>
+      {!profile && (
+        <div className="flex p-1">
+          <div className="w-[33%] flex justify-center items-center gap-2 border-r border-gray-100 p-2 hover:bg-gray-100 cursor-pointer">
+            <ThumbUpIcon sx={{ fontSize: 22, color: "blue" }} />
+            <span>Like</span>
+          </div>
 
-        <div onClick={()=>setComment(true)} className="w-[33%] flex justify-center items-center gap-2 border-r border-gray-100 p-2 hover:bg-gray-100 cursor-pointer">
-          <CommentIcon sx={{ fontSize: 22 }} />
-          <span>Comment</span>
-        </div>
+          <div
+            onClick={() => setComment(true)}
+            className="w-[33%] flex justify-center items-center gap-2 border-r border-gray-100 p-2 hover:bg-gray-100 cursor-pointer"
+          >
+            <CommentIcon sx={{ fontSize: 22 }} />
+            <span>Comment</span>
+          </div>
 
-        <div className="w-[33%] flex justify-center items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer">
-          <SendIcon sx={{ fontSize: 22 }} />
-          <span>Share</span>
+          <div className="w-[33%] flex justify-center items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer">
+            <SendIcon sx={{ fontSize: 22 }} />
+            <span>Share</span>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Comment section */}
       {comment && (

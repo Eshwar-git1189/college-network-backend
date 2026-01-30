@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Ad from "../../components/Advertisement/ad";
 import Card from "../../components/Card/card";
 import Dp from "../../assets/dp.jpg";
 import EditIcon from "@mui/icons-material/Edit";
+import Post from "../../components/Post/post";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import AddIcon from "@mui/icons-material/Add";
+import PostModel from "../../components/PostModel/PostModel";
+import ImageModel from "../../components/ImageModel/ImageModel";
 
 const Profile = () => {
+  const [imageModel, setImageModel] = useState(false);
+
+  const handleImageModelOpenClose = () => {
+    setImageModel((prev) => !prev);
+  };
   return (
     <div className="px-5 xl:px-50 py-5 mt-5 flex flex-col gap-5 w-full bg-gray-100">
       <div className="flex justify-between mt-5">
@@ -132,6 +142,74 @@ const Profile = () => {
               </div>
             </Card>
           </div>
+          <div className="mt-5">
+            <Card padding={1}>
+              <div className="flex justify-between items-center">
+                <div className="text-xl font-semibold">Activity</div>
+              </div>
+              <div className="mt-2 cursor-pointer px-3 py-1 w-fit border-1 rounded-4xl bg-green-800 text-white font-semibold">
+                Posts
+              </div>
+              {/* Parent div for scrollable Activity */}
+              <div className="overflow-x-auto my-2 flex gap-1 overflow-y-hidden">
+                <div className="cursor-pointer shrink-0 w-90">
+                  <Post profile={1} />
+                </div>
+                <div className="cursor-pointer shrink-0 w-90">
+                  <Post profile={1} />
+                </div>
+                <div className="cursor-pointer shrink-0 w-90">
+                  <Post profile={1} />
+                </div>
+              </div>
+              <div className=" text-center cursor-pointer">
+                Show all posts {<ArrowRightAltIcon />}
+              </div>
+            </Card>
+          </div>
+          <div className="mt-5">
+            <Card padding={1}>
+              <div className="flex justify-between items-center">
+                <div className="text-xl font-semibold">Experience</div>
+                <div className="cursor-pointer">
+                  <AddIcon />
+                </div>
+              </div>
+              <div className="mt-5">
+                <div className="p-2 border-t border-gray-300 flex justify-between">
+                  <div>
+                    <div className="text-lg">
+                      DSE Engineer | Full Stack Engineer
+                    </div>
+                    <div className="text-sm">Amizon</div>
+                    <div className="text-sm text-gray-500">
+                      March 2022 Present
+                    </div>
+                    <div className="text-sm text-gray-500">Delhi, India</div>
+                  </div>
+                  <div className="cursor-pointer">
+                    <EditIcon />
+                  </div>
+                </div>
+
+                <div className="p-2 border-t-1 border-gray-300 flex justify-between">
+                  <div>
+                    <div className="text-lg">
+                      DSE Engineer | Full Stack Engineer
+                    </div>
+                    <div className="text-sm">Amizon</div>
+                    <div className="text-sm text-gray-500">
+                      March 2022 Present
+                    </div>
+                    <div className="text-sm text-gray-500">Delhi, India</div>
+                  </div>
+                  <div className="cursor-pointer">
+                    <EditIcon />
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
 
         {/* Right Side */}
@@ -141,6 +219,11 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      {imageModel && (
+        <PostModel closeModel={handleImageModelOpenClose}>
+          <ImageModel />
+        </PostModel>
+      )}
     </div>
   );
 };
