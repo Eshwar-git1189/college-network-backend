@@ -8,13 +8,33 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import AddIcon from "@mui/icons-material/Add";
 import PostModel from "../../components/PostModel/PostModel";
 import ImageModel from "../../components/ImageModel/ImageModel";
+import EditInfoModel from "../../components/editInfoModel/EditInfoModel";
 
 const Profile = () => {
   const [imageModel, setImageModel] = useState(false);
+  const [circularImage, setCircularImage] = useState(true);
 
+  const [infoModel, setInfoModel] = useState(false);
+  const [aboutModel, setAboutModel] = useState(false);
+
+  const handleAboutModel = () => {
+    setAboutModel((prev) => !prev);
+  };
+  const handleInfoModel = () => {
+    setInfoModel((prev) => !prev);
+  };
   const handleImageModelOpenClose = () => {
     setImageModel((prev) => !prev);
   };
+  const handleOnEditCover = () => {
+    setImageModel(true);
+    setCircularImage(false);
+  };
+  const handleCircularImageOpen = () => {
+    setImageModel(true);
+    setCircularImage(true);
+  };
+
   return (
     <div className="px-5 xl:px-50 py-5 mt-5 flex flex-col gap-5 w-full bg-gray-100">
       <div className="flex justify-between mt-5">
@@ -27,6 +47,7 @@ const Profile = () => {
                 <div className="relative w-full h-[200px]">
                   {/* Cover Image */}
                   <div
+                    onClick={handleOnEditCover}
                     className="absolute cursor-pointer top-3 right-3 z-28 w-[35px] flex justify-center items-center 
                     h-[35px] rounded-full p-3 bg-white"
                   >
@@ -39,7 +60,10 @@ const Profile = () => {
                   />
 
                   {/* Profile Image */}
-                  <div className="absolute object-cover top-24 left-6 z-10">
+                  <div
+                    onClick={handleCircularImageOpen}
+                    className="absolute object-cover top-24 left-6 z-10"
+                  >
                     <img
                       className="w-35 h-35 rounded-full border-2 border-white cursor-pointer"
                       src={Dp}
@@ -51,6 +75,7 @@ const Profile = () => {
                 {/* Profile Info */}
                 <div className="mt-10 relative px-8 py-2">
                   <div
+                    onClick={handleInfoModel}
                     className="absolute cursor-pointer top-3 right-3 z-28 w-[35px] flex justify-center items-center 
                     h-[35px] rounded-full p-3 bg-white"
                   >
@@ -220,8 +245,13 @@ const Profile = () => {
         </div>
       </div>
       {imageModel && (
-        <PostModel closeModel={handleImageModelOpenClose}>
-          <ImageModel />
+        <PostModel title="Upload Image" closeModel={handleImageModelOpenClose}>
+          <ImageModel isCircular={circularImage} />
+        </PostModel>
+      )}
+      {infoModel && (
+        <PostModel title="Edit Info" closeModel={handleInfoModel}>
+          <EditInfoModel />
         </PostModel>
       )}
     </div>

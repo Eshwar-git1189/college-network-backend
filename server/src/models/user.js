@@ -2,64 +2,98 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    googleId: {
       type: String,
-      required: false,
-      trim: true,
     },
 
     email: {
       type: String,
       required: true,
-      unique: true,
-      lowercase: true,
-      trim: true,
     },
 
     password: {
       type: String,
-      required: true,
     },
 
-    role: {
+    f_name: {
       type: String,
-      enum: [
-        "student",
-        "alumni",
-        "faculty",
-        "placement_coordinator",
-        "club_admin",
-        "admin",
-      ],
-      default: "student",
+      default: "",
     },
 
-    isActive: {
-      type: Boolean,
-      default: true,
+    headline: {
+      type: String,
+      default: "",
     },
 
-    isVerified: {
-      type: Boolean,
-      default: false,
+    curr_company: {
+      type: String,
+      default: "",
     },
-    followers: [
+
+    curr_location: {
+      type: String,
+      default: "",
+    },
+
+    profilePic: {
+      type: String,
+      default:
+        "https://res.cloudinary.com/mashhuudanny/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1/default_profile",
+    },
+
+    cover_pic: {
+      type: String,
+      default: "https://wallpaperaccess.com/full/6060285.png",
+    },
+
+    about: {
+      type: String,
+      default: "",
+    },
+
+    skills: {
+      type: [String],
+      default: [],
+    },
+
+    experience: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        designation: {
+          type: String,
+        },
+        company_name: {
+          type: String,
+        },
+        duration: {
+          type: String,
+        },
+        location: {
+          type: String,
+        },
       },
     ],
 
-    following: [
+    friends: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: "user",
       },
     ],
+
+    pending_friends: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+      },
+    ],
+
+    resume: {
+      type: String,
+    },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("User", userSchema);

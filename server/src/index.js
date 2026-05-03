@@ -1,43 +1,25 @@
-const mongoose = require("mongoose");
+const express = require("express");
+const app = express();
+const cors = require('cors')
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
-const app = require("./app");
-const http = require("http");
-const server = http.createServer(app);
-const { Server } = require("socket.io");
-const Message = require("./models/message");
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("Database connection established");
+require("./connection");
 
-    const io = new Server(server, {
-      cors: {
-        origin: "*",
-      },
-    });
+// const app1 = require("./app");
+// const http = require("http");
 
-    io.on("connection", (socket) => {
-      socket.on("join", (userId) => {
-        socket.join(userId);
-      });
+const UserRoutes = require('./routes/user')
+app.use('/api/auth',UserRoutes)
 
-      socket.on("private_message", async (data) => {
-        try {
-          // data: { sender, receiver, content }
-          const { sender, receiver, content } = data;
-          const msg = await Message.create({ sender, receiver, content });
-          io.to(receiver).emit("private_message", msg);
-          io.to(sender).emit("private_message", msg);
-        } catch (err) {
-          console.error("Socket message save error", err);
-        }
-      });
-    });
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors({
+  credentials:true,
+  origin:"http://localhost:5173"
+}))
 
-    server.listen(process.env.PORT, () => {
-      console.log(`Server running on port ${process.env.PORT}`);
-    });
-  })
-  .catch((err) => console.log("Database connection error:", err.message));
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
+});

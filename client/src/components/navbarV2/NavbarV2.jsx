@@ -8,6 +8,7 @@ import MessageIcon from "@mui/icons-material/Message";
 import { useLocation, Link } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import Dp from "../../assets/dp.jpg";
+import RouteIcon from "@mui/icons-material/Route";
 
 const NavbarV2 = () => {
   const [dropDown, setdropDown] = useState(false);
@@ -80,11 +81,11 @@ const NavbarV2 = () => {
         </Link>
 
         <Link
-          to={"/alert"}
+          to={"/career"}
           className="flex flex-col items-center cursor-pointer"
         >
-          <NotificationsIcon sx={getIconStyle("/alert")} />
-          <div className={`text-sm ${getIconUnderLine("/alert")}`}>Alerts</div>
+          <RouteIcon sx={getIconStyle("/career")} />
+          <div className={`text-sm ${getIconUnderLine("/career")}`}>Career</div>
         </Link>
 
         <Link
@@ -97,7 +98,10 @@ const NavbarV2 = () => {
           </div>
         </Link>
 
-        <Link to={"/profile/eshu"} className="flex flex-col items-center cursor-pointer">
+        <Link
+          to={"/profile/eshu"}
+          className="flex flex-col items-center cursor-pointer"
+        >
           <img src={Dp} className="w-8 h-8 rounded-full" alt="me" />
           <div className={`text-sm ${getIconUnderLine("/profile")}`}>Me</div>
         </Link>
